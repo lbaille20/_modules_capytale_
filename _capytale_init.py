@@ -13,3 +13,15 @@ def ensure_path_validity(path_to_dst):
 
 ensure_path_validity("telechargements")
 ensure_path_validity("capytale/modules")
+
+def download_file_as_is(src_url, dst_dir, filename):
+    from urllib.request import urlopen
+    f = urlopen(src_url)
+    if dst_dir != '.':
+        ensure_path_validity(dst_dir)
+    with open(os.path.join(dst_dir, filename), 'wb') as f1:
+        f1.write(f.read())
+        
+distant_directory_url = "https://raw.githubusercontent.com/lbaille20/_modules_capytale_/main/"
+fichiers_a_telecharger = ["capytale_preliminaries.py"]
+
