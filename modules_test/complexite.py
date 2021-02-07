@@ -1,75 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### Fonctions de création/vérification de  répertoires
-
-# In[1]:
-
-
-import os
-
-def ensure_path_validity(path_to_dst):
-    head, tail = os.path.split(path_to_dst)
-    #print('head =', head, 'tail =', tail)
-    if head != '' and not os.path.exists(head):
-        #print(head, head == '')
-        ensure_path_validity(head)
-    if head == '':
-        head = '.'
-    if tail != '' and tail not in os.listdir(head) or not os.path.isdir(path_to_dst):
-        os.mkdir(path_to_dst)
-
-
-# In[5]:
-
-
-ensure_path_validity("telechargements")
-ensure_path_validity("modules")
-ensure_path_validity("capytale/modules")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-def download_file_as_is(src_url, dst_dir, filename):
-    from urllib.request import urlopen
-    f = urlopen(src_url)
-    if dst_dir != '.':
-        ensure_path_validity(dst_dir)
-    with open(os.path.join(dst_dir, filename), 'wb') as f1:
-        f1.write(f.read())
-        
-distant_directory_url = "https://github.com/lbaille20/NSI-2020-21/raw/main"
-fichiers_a_telecharger = [
-    "Correspondances.docx",
-    "Correspondances.txt",
-    "VICTOR_HUGO-Notre_dame_de_paris-Atramenta.net.docx",
-    "VICTOR_HUGO-Notre_dame_de_paris-Atramenta.net.txt",
-    "GroupeNSI_complet.xlsx",
-    "GroupeNSI_complet.csv",
-    "GroupeNSI_complet_utf-8_virgules.csv",
-    "GroupeNSI_complet_latin-1_tabulations.txt",
-    "GroupeNSI_extrait.csv",
-    "spes_1ere_2020.xlsx",
-    "spes_1ere_2020.csv",
-    "spes_Term_2020.xlsx",
-    "spes_Term_2020.csv"
-]
-
-src_url = '/'.join([distant_directory_url, "Correspondances.txt"])
-download_file_as_is(src_url, '.', "Correspondances.txt")
-
-for filename in fichiers_a_telecharger:
-    src_url = '/'.join([distant_directory_url, filename])
-    dst_dir = "Telechargements/NSI-1ere/sem19"
-    download_file_as_is(src_url, dst_dir, filename)
-
+# ### Mesure de complexité
 
 # * mesures de base :
 

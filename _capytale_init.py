@@ -27,3 +27,5 @@ fichier_a_telecharger = "capytale_preliminaries.py"
 src_url = ''.join([distant_directory_url, fichier_a_telecharger])
 dst_dir = 'capytale'
 download_file_as_is(src_url, dst_dir, fichier_a_telecharger)
+
+exec(os.path.join('capytale', 'capytale_preliminaries.py'))
