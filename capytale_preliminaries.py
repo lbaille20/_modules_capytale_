@@ -49,7 +49,7 @@ def download_file_as_is(src_url, dst_dir, filename):
 
 distant_directory_url = "https://raw.githubusercontent.com/lbaille20/_modules_capytale_/main"
 
-repertoire_module = ["modules_test"]
+repertoire_modules = ["modules_test"]
 
 fichiers_a_telecharger = ["capytale_misc",
                           "complexite"]
@@ -65,7 +65,8 @@ dst_dir = 'capytale/modules'
 
 
 for file in fichiers_a_telecharger:
-    src_url = '/'.join([distant_directory_url, directory, filename])
+    filename = file + '.py'
+    src_url = '/'.join([distant_directory_url, repertoire_modules, filename])
     try:
         download_file_as_is(src_url, dst_dir, filename)
     except:
