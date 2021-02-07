@@ -73,8 +73,11 @@ for file in fichiers_a_telecharger:
         print(f'Module "{file}" not found')
 
 
+# * ajout du chemin vers les modules capytale
+
 # In[ ]:
 
 
-
+import sys
+sys.path.append('capytale/modules')
 
